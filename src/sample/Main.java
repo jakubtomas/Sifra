@@ -21,6 +21,6 @@ public class Main extends Application {
         launch(args);
     }
 
-    ReadFile priecinok = new ReadFile();
+    Cipher priecinok = new Cipher();
 
 }
