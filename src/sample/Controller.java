@@ -48,11 +48,6 @@ public class Controller {
 
             System.out.println(files.getFileContent());
 
-            /*  1 . select Path
-            2  set name
-            3.create  Cipher
-            4.Create new file
-            * */
             System.out.println("get name file " + "  " +  files.getNameFile());
 
 
