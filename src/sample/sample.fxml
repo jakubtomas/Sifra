@@ -5,13 +5,12 @@
 
 <GridPane alignment="center" hgap="10" prefHeight="300.0" prefWidth="410.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <Pane prefHeight="289.0" prefWidth="383.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-      <children>
-         <Button fx:id="Button" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#openFileChooser" text="choose file" />
-         <Button fx:id="Button2" layoutX="132.0" layoutY="2.0" mnemonicParsing="false" onAction="#encryptText" text="encrypt text" />
-         <Button fx:id="Button3" layoutX="230.0" layoutY="2.0" mnemonicParsing="false" onAction="#decryptText" text="decrypted" />
-         <Label fx:id="filePath" layoutX="14.0" layoutY="53.0" prefHeight="25.0" prefWidth="221.0" text="..." />
-         <Label fx:id="fileContent" alignment="TOP_LEFT" layoutX="14.0" layoutY="88.0" prefHeight="158.0" prefWidth="277.0" text="..." />
-      </children>
+      <Button fx:id="Button" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#openFileChooser" text="choose file" />
+      <Button fx:id="Button2" layoutX="132.0" layoutY="2.0" mnemonicParsing="false" onAction="#encryptText" text="encrypt text" />
+      <Button fx:id="Button3" layoutX="230.0" layoutY="2.0" mnemonicParsing="false" onAction="#decryptText" text="decrypted" />
+      <Label fx:id="filePath" layoutX="14.0" layoutY="53.0" prefHeight="25.0" prefWidth="221.0" text="..." />
+      <Label fx:id="fileContent" alignment="TOP_LEFT" layoutX="14.0" layoutY="88.0" prefHeight="158.0" prefWidth="277.0" text="..." />
+      <TextField fx:id="passwordTextField" layoutX="177.0" layoutY="177.0" prefHeight="25.0" prefWidth="123.0" />
    </Pane>
    <columnConstraints>
       <ColumnConstraints />

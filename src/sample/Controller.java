@@ -3,6 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import javax.swing.JFileChooser;
@@ -19,6 +20,7 @@ public class Controller {
     public javafx.scene.control.Button Button;
     public javafx.scene.control.Button Button2;
     public javafx.scene.control.Button Button3;
+    public TextField passwordTextField;
 
 
     private Files files;
@@ -57,11 +59,14 @@ public class Controller {
         }
     }
 
+    /*
+    * Its necessary to create condition what when will happen if the password text field  will be empty   Text field   */
+
 
     public void encryptText() {
         Cipher file = new Cipher();
         System.out.println("vypis");
-        System.out.println(file.encryptText("Zebra",filePath.getText()));
+        System.out.println(file.encryptText(passwordTextField.getText(),filePath.getText()));
         System.out.println(filePath.getText());
         file.printFileInfo();
 
@@ -71,7 +76,7 @@ public class Controller {
 
     public void decryptText() {
         Cipher file = new Cipher();
-        System.out.println(file.DecryptedText("Zebra",filePath.getText()));
+        System.out.println(file.DecryptedText(passwordTextField.getText(),filePath.getText()));
         //file.printFileInfo();
 
        // file.createDecryptTxt(file.getResultSentence(),files.getNameFile());
