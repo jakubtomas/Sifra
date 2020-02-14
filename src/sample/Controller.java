@@ -21,16 +21,19 @@ public class Controller {
     public javafx.scene.control.Button Button2;
     public javafx.scene.control.Button Button3;
     public TextField passwordTextField;
+    public Label notification;
+    public Label message;
 
 
     private Files files;
+
     public void showInfo(ActionEvent actionEvent) {
 
 
     }
 
 
-    public void openFileChooser(){
+    public void openFileChooser() {
         JFileChooser fileChooser = new JFileChooser("C:\\Users\\install\\IdeaProjects\\Sifra\\src\\");
         int status = fileChooser.showOpenDialog(null);
 
@@ -44,14 +47,13 @@ public class Controller {
             System.out.println(files.getPath() + "   " + files.getParent());
 
             filePath.setText(files.getPath()); // show text
-           // filePath.setText(files.getParent()); // show text
+            // filePath.setText(files.getParent()); // show text
 
             fileContent.setText(files.getFileContent()); // show text
 
             System.out.println(files.getFileContent());
 
-            System.out.println("get name file " + "  " +  files.getNameFile());
-
+            System.out.println("get name file " + "  " + files.getNameFile());
 
 
         } else if (status == JFileChooser.CANCEL_OPTION) {
@@ -60,26 +62,60 @@ public class Controller {
     }
 
     /*
-    * Its necessary to create condition what when will happen if the password text field  will be empty   Text field   */
+     * Its necessary to create condition what when will happen if the password text field  will be empty   Text field   */
 
 
     public void encryptText() {
         Cipher file = new Cipher();
-        System.out.println("vypis");
-        System.out.println(file.encryptText(passwordTextField.getText(),filePath.getText()));
-        System.out.println(filePath.getText());
-        file.printFileInfo();
+        System.out.println("EncryptText");
 
-        file.createEncryptTxt(file.getResultSentence(),files.getNameFile());
+
+        System.out.println(filePath.getText());
+
+        if (passwordTextField.getText().equals("")) {
+            notification.setText("Warning  Password is empty");
+            System.out.println("Warning  Password is empty  ");
+        } else if (filePath.getText().equals("...")) {
+
+
+            notification.setText("Warning You didn't choose the file");
+            System.out.println("Warning You didn't choose the file");
+
+        } else {
+            System.out.println(file.encryptText(passwordTextField.getText(), filePath.getText()));
+/*
+            System.out.println(filePath.getText());
+            file.printFileInfo();
+*/
+
+            file.createEncryptTxt(file.getResultSentence(), files.getNameFile());
+            notification.setText("The process _encrypt is successfully done my friend ");
+            ;
+        }
+
 
     }
 
     public void decryptText() {
         Cipher file = new Cipher();
-        System.out.println(file.DecryptedText(passwordTextField.getText(),filePath.getText()));
+
+
+        if (passwordTextField.getText().equals("")) {
+            System.out.println("Warning  Password is empty");
+            notification.setText("Warning Password is empty");
+
+        } else if (filePath.getText().equals("...")) {
+            System.out.println("Warning  You didn't choose the file please select file.txt");
+            notification.setText("Warning You didn't choose the file");
+        } else {
+            System.out.println(file.DecryptedText(passwordTextField.getText(), filePath.getText()));
+            file.createDecryptTxt(file.getResultSentence(), files.getNameFile());
+            notification.setText("The process _encrypt is successfully done my friend ");
+        }
+
         //file.printFileInfo();
 
-       // file.createDecryptTxt(file.getResultSentence(),files.getNameFile());
+        // file.createDecryptTxt(file.getResultSentence(),files.getNameFile());
 
 
     }
